@@ -18,8 +18,8 @@
         <a id="logo">TO DO LIST</a>
         <!-- nav desktop (nd) -->
         <ul class="nd">
-            <li><a href="signup.jsp">Sign up</a></li>
-            <li><a href="signin.jsp">Login</a></li>
+            <li><a href="signup">Sign up</a></li>
+            <li><a href="signin">Login</a></li>
         </ul>
     </header>
 
@@ -51,8 +51,8 @@
 <!-- footer -->
     <!-- nav mobile (nm) -->
 <ul class="nm">
-    <li><a href="signup.jsp">Sign up</a></li>
-    <li><a href="signin.jsp">Login</a></li>
+    <li><a href="signup">Sign up</a></li>
+    <li><a href="signin">Login</a></li>
 </ul>
 
 <footer>

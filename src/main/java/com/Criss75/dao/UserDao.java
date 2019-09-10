@@ -4,4 +4,5 @@ import com.Criss75.user.UserAccount;
 
 public interface UserDao {
     int registerUser (UserAccount userAccount);
+    boolean validateLogin (String name, String password);
 }

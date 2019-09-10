@@ -4,6 +4,7 @@ import com.Criss75.dao.UserDao;
 import com.Criss75.dao.UserDaoImpl;
 import com.Criss75.user.UserAccount;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,11 +17,17 @@ public class UserServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private UserDaoImpl userDao;
 
-//    public void init() {
-//        userDao = new UserDaoImpl();
-//    }
+    public void init() {
+        userDao = new UserDaoImpl();
+    }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        request.getRequestDispatcher("signup.jsp").forward(request, response);
+    }
+
+        protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         String username = request.getParameter("username");
@@ -34,11 +41,12 @@ public class UserServlet extends HttpServlet {
 
         try {
             userDao.registerUser(userAccount);
+            request.setAttribute("success", "You have registered successfully! Please login");
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
-        response.sendRedirect("success.jsp");
+            RequestDispatcher rd=request.getRequestDispatcher("signin.jsp");
+            rd.forward(request, response);
     }
 }

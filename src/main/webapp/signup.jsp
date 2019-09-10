@@ -40,6 +40,9 @@
 
                             <div class="form-group form-button">
                                 <input type="submit" name="submit" id="signup" class="form-submit" value="Submit"/>
+                                <br>
+                                <br>
+                                <a href="signin">Already registered? Login...</a>
                             </div>
                         </form>
                     </div>
@@ -49,6 +52,5 @@
                 </div>
             </div>
         </section>
-
 </body>
 </html>
