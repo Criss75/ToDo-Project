@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         if(userDao.validateLogin(username, password)){
-            RequestDispatcher rd=req.getRequestDispatcher("success.jsp");
+            RequestDispatcher rd=req.getRequestDispatcher("todo-list.jsp");
             rd.forward(req,resp);
         }
 ////        if("Filip".equalsIgnoreCase(req.getParameter("username")) && "s3cur3".equals(req.getParameter("password"))){
