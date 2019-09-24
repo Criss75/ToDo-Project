@@ -1,6 +1,7 @@
 package com.Criss75.servlets;
 
 import com.Criss75.dao.UserDaoImpl;
+import com.Criss75.todoController.TodoController;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,6 +19,7 @@ public class LoginServlet extends HttpServlet {
     public void init() {
         userDao = new UserDaoImpl();
     }
+
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("/signin.jsp").forward(req, resp);
     }
@@ -26,17 +28,22 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
-        if(userDao.validateLogin(username, password)){
-            RequestDispatcher rd=req.getRequestDispatcher("todo-list.jsp");
-            rd.forward(req,resp);
+        String path = "/TodoController";
+        if (userDao.validateLogin(username, password)) {
+            req.getSession().setAttribute("isAuth", true);
+            req.getSession().setAttribute("userProfile", userDao.getUserProfile(username, password));
+            RequestDispatcher rd = req.getRequestDispatcher(path);
+            resp.sendRedirect(req.getContextPath() + path);
+//            rd.forward(req, resp);
+        } else {
+            req.getRequestDispatcher("signin.jsp").forward(req, resp);
         }
+    }
 ////        if("Filip".equalsIgnoreCase(req.getParameter("username")) && "s3cur3".equals(req.getParameter("password"))){
 ////            req.getSession().setAttribute("isAuth", true);
 ////            req.getRequestDispatcher("/success.jsp").forward(req, resp);
 //        }
-        else {
-            req.getRequestDispatcher("signin.jsp").forward(req, resp);
-        }
-    }
 
 }
+
+

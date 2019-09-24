@@ -1,26 +1,26 @@
 package com.Criss75.user;
 
 public class Todo {
-    private int user_id;
-    private int todo_id;
+    private int userId;
+    private int todoId;
     private String title;
-    private boolean is_complete;
+    private boolean isComplete;
     private String active;
 
-    public int getUser_id() {
-        return user_id;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public int getTodo_id() {
-        return todo_id;
+    public int getTodoId() {
+        return todoId;
     }
 
-    public void setTodo_id(int todo_id) {
-        this.todo_id = todo_id;
+    public void setTodoId(int todoId) {
+        this.todoId = todoId;
     }
 
     public String getTitle() {
@@ -31,12 +31,12 @@ public class Todo {
         this.title = title;
     }
 
-    public boolean isIs_complete() {
-        return is_complete;
+    public boolean isComplete() {
+        return isComplete;
     }
 
-    public void setIs_complete(boolean is_complete) {
-        this.is_complete = is_complete;
+    public void setComplete(boolean complete) {
+        this.isComplete = complete;
     }
 
     public String getActive() {
@@ -50,10 +50,10 @@ public class Todo {
     @Override
     public String toString() {
         return "Todo{" +
-                "user_id=" + user_id +
-                ", todo_id=" + todo_id +
+                "userId=" + userId +
+                ", todoId=" + todoId +
                 ", title='" + title + '\'' +
-                ", is_complete=" + is_complete +
+                ", isComplete=" + isComplete +
                 ", active='" + active + '\'' +
                 '}';
     }

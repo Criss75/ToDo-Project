@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class = "container">
+        <p>${requestScope.message}</p>
         <button class = "btn btn-primary" onclick = "window.location.href = 'todo-add.jsp'">Add todo</button>
         <table border ="1" class="table table-striped table-dark">
 
@@ -16,12 +17,18 @@
                 <th>Title</th>
                 <th>Is complete</th>
                 <th>Active</th>
+                <th>Actions</th>
 
             <c:forEach items="${list}" var = "todo">
                 <tr>
                     <td>${todo.title}</td>
-                    <td>${todo.is_complete}</td>
+                    <td>${todo.complete}</td>
                     <td>${todo.active}</td>
+                    <td>
+                    <a href="${pageContext.request.contextPath}/TodoController?action=EDIT&todo_id=${todo.todoId}">Edit</a>
+                    //
+                    <a href="${pageContext.request.contextPath}/TodoController?action=DELETE&todo_id=${todo.todoId}">Delete</a>
+                    </td>
                 </tr>
 
             </c:forEach>
