@@ -32,17 +32,12 @@ public class LoginServlet extends HttpServlet {
         if (userDao.validateLogin(username, password)) {
             req.getSession().setAttribute("isAuth", true);
             req.getSession().setAttribute("userProfile", userDao.getUserProfile(username, password));
-            RequestDispatcher rd = req.getRequestDispatcher(path);
             resp.sendRedirect(req.getContextPath() + path);
 //            rd.forward(req, resp);
         } else {
             req.getRequestDispatcher("signin.jsp").forward(req, resp);
         }
     }
-////        if("Filip".equalsIgnoreCase(req.getParameter("username")) && "s3cur3".equals(req.getParameter("password"))){
-////            req.getSession().setAttribute("isAuth", true);
-////            req.getRequestDispatcher("/success.jsp").forward(req, resp);
-//        }
 
 }
 

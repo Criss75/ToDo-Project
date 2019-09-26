@@ -163,4 +163,21 @@ header {
     font-weight: 300;
 }
 
+footer {
+    height: 70px;
+    background-color: #333;
+
+    /* flex container to hold content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    color: #999;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    text-align: center;
+}
 

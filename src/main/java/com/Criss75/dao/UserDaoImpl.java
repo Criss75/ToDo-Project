@@ -62,7 +62,25 @@ public class UserDaoImpl implements UserDao {
             ResultSet resultSet = preparedStatement.executeQuery();
             status = resultSet.next();
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
+        }
+        return status;
+    }
+
+    @Override
+    public boolean isUserNameValid(String name) {
+        boolean status = true;
+        String SELECT_USERS_SQL = "SELECT * FROM account WHERE username=?;";
+        try {
+            connection = DBConnectionUtil.openConnection();
+            preparedStatement = connection.prepareStatement(SELECT_USERS_SQL);
+            preparedStatement.setString(1, name);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()) {
+                status =false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return status;
     }
@@ -99,7 +117,7 @@ public class UserDaoImpl implements UserDao {
                 profile.setEmail(resultSet.getString(3));
             }
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
         return profile;
     }

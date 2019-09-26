@@ -20,26 +20,28 @@
                 <div class="signup-content">
                     <div class="signup-form">
                         <h2 class="form-title">Sign up</h2>
-                        <form action="<%= request.getContextPath() %>/signup" method="POST" class="register-form" id="register-form">
+                        <p>${requestScope.error_username}</p>
+                        <form name="contact_form" action="<%= request.getContextPath() %>/signup" method="POST"
+                        class="register-form" id="register-form"  onSubmit="return validate_form();">
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="username" id="name" placeholder="Your Name"/>
+                                <input type="text" name="username" id="name" placeholder="Your Name">
                             </div>
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                <input type="email" name="email" id="email" placeholder="Your Email"/>
+                                <input type="email" name="email" id="email" placeholder="Your Email">
                             </div>
                             <div class="form-group">
                                 <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="password" id="pass" placeholder="Password"/>
+                                <input type="password" name="password" id="pass" placeholder="Password">
                             </div>
                             <div class="form-group">
                                 <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
+                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password">
                             </div>
 
                             <div class="form-group form-button">
-                                <input type="submit" name="submit" id="signup" class="form-submit" value="Submit"/>
+                                <input type="submit" name="submit" id="signup" class="form-submit" value="Submit">
                                 <br>
                                 <br>
                                 <a href="signin">Already registered? Login...</a>
@@ -53,4 +55,5 @@
             </div>
         </section>
 </body>
+<script src="scripts.js"></script>
 </html>

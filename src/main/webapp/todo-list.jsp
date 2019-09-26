@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +11,10 @@
 <body>
     <div class = "container">
         <p>${requestScope.message}</p>
-        <button class = "btn btn-primary" onclick = "window.location.href = 'todo-add.jsp'">Add todo</button>
-        <table border ="1" class="table table-striped table-dark">
+        <a href = "${pageContext.request.contextPath}/todo-add?action=ADD">
+            <button class = "btn btn-primary">Add todo</button>
+        </a>
+        <table border ="2" class="table table-striped table-dark">
 
             <tr class = "thead-dark">
                 <th>Title</th>

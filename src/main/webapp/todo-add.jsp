@@ -16,10 +16,10 @@
            <div class="col-md-4">
              <form action="${pageContext.request.contextPath}/TodoController" method="POST">
               <div class="form-group">
-               Input todo: <input type = "text" name = "todoname" value = "${todo.title}" class="form-control"> <br>
+               Input new todo: <input type = "text" name = "todoname" value = "${todo.title}" class="form-control"> <br>
               </div>
               <div class="form-group">
-               Input is complete/not:
+               Completed?
                <input type = "radio" name = "completed" value = "false" checked > NO
                <input type = "radio" name = "completed" value = "true" checked > YES <br>
                 </div>
@@ -39,5 +39,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>

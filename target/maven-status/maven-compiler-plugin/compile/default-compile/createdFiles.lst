@@ -1,4 +1,5 @@
 com\Criss75\dao\TodoDaoImpl.class
+com\Criss75\servlets\LoginFilter.class
 com\Criss75\dao\UserDao.class
 com\Criss75\servlets\LoginServlet.class
 com\Criss75\dao\TodoDao.class

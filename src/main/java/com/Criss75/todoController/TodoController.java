@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/TodoController", initParams = {@WebInitParam(name="user_id",value="account.getUserId")})
+@WebServlet(urlPatterns = {"/TodoController", "/todo-add"}, initParams = {@WebInitParam(name="user_id",value="account.getUserId")})
 public class TodoController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private RequestDispatcher requestDispatcher = null;
@@ -39,6 +39,9 @@ public class TodoController extends HttpServlet {
 
             case "DELETE":
                 deleteTodo (req,resp);
+                break;
+            case "ADD":
+                req.getRequestDispatcher("/todo-add.jsp").forward(req,resp);
                 break;
 
             default:
@@ -80,7 +83,7 @@ public class TodoController extends HttpServlet {
         int userId = userAccount.getUserId();
         List<Todo> list = todoDao.getAll(userId);
         req.setAttribute("list", list);
-        requestDispatcher = req.getRequestDispatcher("/todo-list.jsp");
+        requestDispatcher = req.getRequestDispatcher("/todo-list.jsp");// send redirect??
         requestDispatcher.forward(req, resp);
     }
 

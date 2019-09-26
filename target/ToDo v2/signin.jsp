@@ -38,11 +38,13 @@
                                        <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
                                        <input type="password" name="password" id="your_pass" placeholder="Password"/>
                                    </div>
+                                   <input type = "hidden" value =${account.userId} name = "user_id">
                                    <div class="form-group form-button">
                                        <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
                                        <br> <br>
                                        <a href="signup">Don't have an account yet?</a>
                                    </div>
+                                   <input type="hidden" name="user_id" value="${userId}">
                                </form>
                            </div>
                        </div>

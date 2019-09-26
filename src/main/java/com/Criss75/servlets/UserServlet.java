@@ -1,6 +1,5 @@
 package com.Criss75.servlets;
 
-import com.Criss75.dao.UserDao;
 import com.Criss75.dao.UserDaoImpl;
 import com.Criss75.user.UserAccount;
 
@@ -38,15 +37,19 @@ public class UserServlet extends HttpServlet {
         userAccount.setUsername(username);
         userAccount.setEmail(email);
         userAccount.setPassword(password);
-
-        try {
-            userDao.registerUser(userAccount);
-            request.setAttribute("success", "You have registered successfully! Please login");
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-            RequestDispatcher rd=request.getRequestDispatcher("signin.jsp");
+        if (!userDao.isUserNameValid(username)) {
+            request.setAttribute("error_username", "User already taken, please choose another one!");
+            RequestDispatcher rd=request.getRequestDispatcher("signup.jsp");
             rd.forward(request, response);
+        } else {
+            try {
+                userDao.registerUser(userAccount);
+                request.setAttribute("success", "You have registered successfully! Please login");
+                RequestDispatcher rd=request.getRequestDispatcher("signin.jsp");
+                rd.forward(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
