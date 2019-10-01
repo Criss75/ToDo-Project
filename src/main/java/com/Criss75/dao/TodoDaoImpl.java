@@ -5,15 +5,23 @@ import com.Criss75.util.DBConnectionUtil;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
+/**
+ * Implements TodoDao interface
+ * Contains methods to: "list all", "save", "retrieve a single todo", "update", "delete" todo's
+ */
 public class TodoDaoImpl implements TodoDao {
 
     private Connection connection = null;
-    private Statement statement = null;
     private ResultSet resultSet = null;
     private PreparedStatement preparedStatement = null;
 
+    /**
+     * Connects to database to retrieve all todo's on a user ID
+     * Sorts the todo's retrieved based on their completion date (column label "active")
+     */
     @Override
     public List<Todo> getAll(int userId) {
         List<Todo> list = null;
@@ -36,6 +44,15 @@ public class TodoDaoImpl implements TodoDao {
                 todo.setActive(resultSet.getString("active"));
 
                 list.add(todo);
+
+                Comparator<Todo> todoComparator = new Comparator<Todo>() {
+                    @Override
+                    public int compare(Todo todo1, Todo todo2) {
+                        return todo1.getActive().compareTo(todo2.getActive());
+                    }
+                };
+
+                list.sort(todoComparator);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -43,6 +60,11 @@ public class TodoDaoImpl implements TodoDao {
         return list;
     }
 
+    /**
+     * method that saves a todo into database
+     * @param todo todo
+     * @return flag (true if saving has been completed, else false)
+     */
     @Override
     public boolean save(Todo todo) {
         boolean flag = false;
@@ -63,6 +85,9 @@ public class TodoDaoImpl implements TodoDao {
         } return flag;
     }
 
+    /**
+     * method that gets a single todo from database
+     */
     @Override
     public Todo get(int todoId) {
         Todo todo = null;
@@ -70,7 +95,7 @@ public class TodoDaoImpl implements TodoDao {
             todo = new Todo();
             String sql ="SELECT * FROM todo WHERE todo_id=" + todoId;
             connection = DBConnectionUtil.openConnection();
-            statement = connection.createStatement();
+            Statement statement = connection.createStatement();
             resultSet = statement.executeQuery(sql);
             while (resultSet.next()){
                 todo.setTodoId(resultSet.getInt("todo_id"));
@@ -84,6 +109,11 @@ public class TodoDaoImpl implements TodoDao {
         return todo;
     }
 
+    /**
+     * Method to update a todo
+     * @param todo todo
+     * @return flag true if update is successful else false
+     */
     @Override
     public boolean update(Todo todo) {
         boolean flag =false;
@@ -99,6 +129,11 @@ public class TodoDaoImpl implements TodoDao {
         } return flag;
     }
 
+    /**
+     * Method to delete a todo
+     * @param todoId todo ID
+     * @return flag true if delete successful else false
+     */
     @Override
     public boolean delete(int todoId) {
         boolean flag = false;

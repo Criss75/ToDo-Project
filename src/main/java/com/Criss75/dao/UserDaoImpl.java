@@ -5,31 +5,20 @@ import com.Criss75.util.DBConnectionUtil;
 
 import java.sql.*;
 
+/**
+ * Class to implement UserDao
+ * Contains methods to: get a single user object based on user ID,
+ */
 public class UserDaoImpl implements UserDao {
 
     private Connection connection = null;
     private PreparedStatement preparedStatement = null;
-    private Statement statement = null;
-    private ResultSet resultSet = null;
 
-    public UserAccount get(int id) {
-        UserAccount user =null;
-        try {
-            user = new UserAccount();
-            String sql = "SELECT * FROM account WHERE user_id=" +id;
-            connection = DBConnectionUtil.openConnection();
-            statement = connection.createStatement();
-            resultSet=statement.executeQuery(sql);
-            if (resultSet.next()) {
-                user.setUserId(resultSet.getInt("user_id"));
-                user.setUsername(resultSet.getString("username"));
-                user.setEmail(resultSet.getString("email"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } return user;
-    }
-
+    /**
+     * method that registers a user in the database
+     * @param userAccount object that defines the user
+     * @return - user object newly created in the database
+     */
     @Override
     public int registerUser(UserAccount userAccount) {
         String INSERT_USERS_SQL = "INSERT INTO account" +
@@ -50,6 +39,12 @@ public class UserDaoImpl implements UserDao {
         return result;
     }
 
+    /**
+     * method that validates the login based on registered user name information
+     * @param name user name
+     * @param password user password
+     * @return - if the login details are correct (by checking user name/password pair in the database)
+     */
     @Override
     public boolean validateLogin(String name, String password) {
         boolean status = false;
@@ -67,6 +62,11 @@ public class UserDaoImpl implements UserDao {
         return status;
     }
 
+    /**
+     * method that checks if user name is already taken or it is free in the database
+     * @param name user name
+     * @return - status true if username is available, else false
+     */
     @Override
     public boolean isUserNameValid(String name) {
         boolean status = true;
@@ -85,6 +85,33 @@ public class UserDaoImpl implements UserDao {
         return status;
     }
 
+    /**
+     * method that checks if user email is already taken or it is free in the database
+     * @param email user email
+     * @return - status true if user email is available, else false
+     */
+    @Override
+    public boolean isEmailValid(String email) {
+        boolean status = true;
+        String SELECT_USERS_SQL = "SELECT * FROM account WHERE email=?;";
+        try {
+            connection = DBConnectionUtil.openConnection();
+            preparedStatement = connection.prepareStatement(SELECT_USERS_SQL);
+            preparedStatement.setString(1, email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()) {
+                status =false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return status;
+    }
+
+    /**
+     * method that collects possible SQL exceptions
+     * @param ex exception
+     */
     private void printSQLException(SQLException ex) {
         for (Throwable e : ex) {
             if (e instanceof SQLException) {
@@ -100,6 +127,13 @@ public class UserDaoImpl implements UserDao {
             }
         }
     }
+
+    /**
+     * method that retrieves from database a user with all information
+     * @param name user name
+     * @param password user password
+     * @return user object
+     */
     public UserAccount getUserProfile (String name, String password) {
         UserAccount profile = null;
         String SELECT_USERS_SQL = "SELECT * FROM account WHERE username=? and password=?;";

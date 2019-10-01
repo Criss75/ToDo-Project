@@ -9,7 +9,7 @@
 /* rulesets to show certain content above the fold */
 
 #laptop-img {
-    background-image: url("../IMG/sergey-zolkin-_UeY8aTI6d0-unsplash.jpg");
+    background-image: url("../IMG/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg");
 }
 
 /* HEADER */
@@ -82,7 +82,7 @@ header {
     letter-spacing: 1px;
     text-decoration: none;
     text-transform: uppercase;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Dosis', sans-serif;
 }
 
 .nd li {

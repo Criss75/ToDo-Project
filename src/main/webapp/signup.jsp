@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign Up Form</title>
-
+<link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/style.css">
 
 </head>
@@ -20,7 +20,10 @@
                 <div class="signup-content">
                     <div class="signup-form">
                         <h2 class="form-title">Sign up</h2>
-                        <p>${requestScope.error_username}</p>
+                        <p id="msg">${requestScope.error_username}</p>
+                        <p id="msg">${requestScope.error_email}</p>
+                        <p id="msg">${requestScope.error_password}</p>
+                        <br>
                         <form name="contact_form" action="<%= request.getContextPath() %>/signup" method="POST"
                         class="register-form" id="register-form"  onSubmit="return validate_form();">
                             <div class="form-group">

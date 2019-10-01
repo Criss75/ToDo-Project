@@ -5,7 +5,10 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = { "/TodoController/*" })
+/**
+ * Implements a filter for login
+ */
+@WebFilter(urlPatterns = { "/TodoController/*", "/todo-add", "/todo-list" })
 public class LoginFilter implements Filter {
 
     @Override
