@@ -1,13 +1,13 @@
 package com.Criss75.dao;
 
-import com.Criss75.user.UserAccount;
+import com.Criss75.entity.UserAccount;
 import com.Criss75.util.DBConnectionUtil;
 
 import java.sql.*;
 
 /**
  * Class to implement UserDao
- * Contains methods to: get a single user object based on user ID,
+ * Contains methods to: get a single entity object based on entity ID,
  */
 public class UserDaoImpl implements UserDao {
 
@@ -15,9 +15,9 @@ public class UserDaoImpl implements UserDao {
     private PreparedStatement preparedStatement = null;
 
     /**
-     * method that registers a user in the database
-     * @param userAccount object that defines the user
-     * @return - user object newly created in the database
+     * method that registers a entity in the database
+     * @param userAccount object that defines the entity
+     * @return - entity object newly created in the database
      */
     @Override
     public int registerUser(UserAccount userAccount) {
@@ -40,10 +40,10 @@ public class UserDaoImpl implements UserDao {
     }
 
     /**
-     * method that validates the login based on registered user name information
-     * @param name user name
-     * @param password user password
-     * @return - if the login details are correct (by checking user name/password pair in the database)
+     * method that validates the login based on registered entity name information
+     * @param name entity name
+     * @param password entity password
+     * @return - if the login details are correct (by checking entity name/password pair in the database)
      */
     @Override
     public boolean validateLogin(String name, String password) {
@@ -63,8 +63,8 @@ public class UserDaoImpl implements UserDao {
     }
 
     /**
-     * method that checks if user name is already taken or it is free in the database
-     * @param name user name
+     * method that checks if entity name is already taken or it is free in the database
+     * @param name entity name
      * @return - status true if username is available, else false
      */
     @Override
@@ -86,9 +86,9 @@ public class UserDaoImpl implements UserDao {
     }
 
     /**
-     * method that checks if user email is already taken or it is free in the database
-     * @param email user email
-     * @return - status true if user email is available, else false
+     * method that checks if entity email is already taken or it is free in the database
+     * @param email entity email
+     * @return - status true if entity email is available, else false
      */
     @Override
     public boolean isEmailValid(String email) {
@@ -129,10 +129,10 @@ public class UserDaoImpl implements UserDao {
     }
 
     /**
-     * method that retrieves from database a user with all information
-     * @param name user name
-     * @param password user password
-     * @return user object
+     * method that retrieves from database a entity with all information
+     * @param name entity name
+     * @param password entity password
+     * @return entity object
      */
     public UserAccount getUserProfile (String name, String password) {
         UserAccount profile = null;

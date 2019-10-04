@@ -1,4 +1,4 @@
-package com.Criss75.user;
+package com.Criss75.entity;
 
 import java.io.Serializable;
 

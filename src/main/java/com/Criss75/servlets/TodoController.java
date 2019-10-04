@@ -1,8 +1,8 @@
-package com.Criss75.todoController;
+package com.Criss75.servlets;
 
 import com.Criss75.dao.TodoDaoImpl;
-import com.Criss75.user.Todo;
-import com.Criss75.user.UserAccount;
+import com.Criss75.entity.Todo;
+import com.Criss75.entity.UserAccount;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,9 +16,9 @@ import java.util.List;
 
 /**
  * todo controller that takes care of the main operation on todo's. Implements CRUD
- * (create, read, update, delete) for user todo's
+ * (create, read, update, delete) for entity todo's
  */
-@WebServlet(urlPatterns = {"/TodoController", "/todo-add"}, initParams = {@WebInitParam(name="user_id",value="account.getUserId")})
+@WebServlet(urlPatterns = {"/todo"}, initParams = {@WebInitParam(name="user_id",value="account.getUserId")})
 public class TodoController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private RequestDispatcher requestDispatcher;
@@ -63,7 +63,6 @@ public class TodoController extends HttpServlet {
         Todo todo = new Todo();
         UserAccount userAccount = (UserAccount) req.getSession().getAttribute("userProfile");
         int userId = userAccount.getUserId();
-
         todo.setUserId(userId);
         todo.setTitle(todoName);
         todo.setComplete(completed);
@@ -84,7 +83,7 @@ public class TodoController extends HttpServlet {
     }
 
     /**
-     * method that lists all user todo's
+     * method that lists all entity todo's
      * @param req servlet request
      * @param resp servlet response
      * @throws ServletException exception

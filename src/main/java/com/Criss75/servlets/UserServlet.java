@@ -1,7 +1,7 @@
 package com.Criss75.servlets;
 
 import com.Criss75.dao.UserDaoImpl;
-import com.Criss75.user.UserAccount;
+import com.Criss75.entity.UserAccount;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -30,8 +30,8 @@ public class UserServlet extends HttpServlet {
     }
 
     /**
-     * method that checks if user name or email already exits, if initial password match retyped password
-     * if yes, user is logged in and forwarded to todo-list
+     * method that checks if entity name or email already exits, if initial password match retyped password
+     * if yes, entity is logged in and forwarded to todo-list
      *
      * @param request  servlet request
      * @param response servlet response

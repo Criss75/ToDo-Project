@@ -1,6 +1,6 @@
 package com.Criss75.dao;
 
-import com.Criss75.user.Todo;
+import com.Criss75.entity.Todo;
 import com.Criss75.util.DBConnectionUtil;
 
 import java.sql.*;
@@ -19,7 +19,7 @@ public class TodoDaoImpl implements TodoDao {
     private PreparedStatement preparedStatement = null;
 
     /**
-     * Connects to database to retrieve all todo's on a user ID
+     * Connects to database to retrieve all todo's on a entity ID
      * Sorts the todo's retrieved based on their completion date (column label "active")
      */
     @Override

@@ -15,12 +15,14 @@
     <hr/>
         <div class="row">
            <div class="col-md-4">
-             <form action="${pageContext.request.contextPath}/TodoController" method="POST">
+             <form action="${pageContext.request.contextPath}/todo" method="POST">
               <div class="form-group">
-               Input new todo: <input type = "text" name = "todoname" value = "${todo.title}" class="form-control"> <br>
+               Input new todo: <input type = "text" name = "todoname" value = "${todo.title}"
+               class="form-control" required> <br>
               </div>
                 <div class="form-group">
-               Input due date: <input type = "date" name = "active" value = "${todo.active}" class="form-control"> <br>
+               Input due date: <input type = "date" id="userdate" onchange="return TDate()" name = "active"
+               value = "${todo.active}" class="form-control" required> <br>
                 </div>
                 <div class="form-group">
                  Completed?
@@ -35,10 +37,11 @@
 
     </div>
 
+
+    <script src="scripts.js"></script>
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="scripts.js"></script>
 </body>
 </html>

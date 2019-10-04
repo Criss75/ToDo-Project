@@ -1,6 +1,6 @@
 package com.Criss75.dao;
 
-import com.Criss75.user.Todo;
+import com.Criss75.entity.Todo;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import java.util.List;
 public interface TodoDao {
 
     /**
-     * Get a list of all todo's based on an user ID
-     * @param user_id user ID
+     * Get a list of all todo's based on an entity ID
+     * @param user_id entity ID
      */
     List<Todo> getAll(int user_id);
 
@@ -23,7 +23,7 @@ public interface TodoDao {
     boolean save(Todo todo);
 
     /**
-     * Get a single todo based on a user ID
+     * Get a single todo based on a entity ID
      * @param todoId todo ID
      */
     Todo get(int todoId);

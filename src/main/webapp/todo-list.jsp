@@ -20,7 +20,7 @@
         </br>
         </br>
     <div class = "container">
-        <a href = "${pageContext.request.contextPath}/todo-add?action=ADD">
+        <a href = "${pageContext.request.contextPath}/todo?action=ADD">
             <button class = "btn btn-primary">Add todo</button>
         </a>
         </br>
@@ -39,9 +39,9 @@
                     <td>${todo.complete}</td>
                     <td>${todo.active}</td>
                     <td>
-                    <a href="${pageContext.request.contextPath}/TodoController?action=EDIT&todo_id=${todo.todoId}">Edit</a>
+                    <a href="${pageContext.request.contextPath}/todo?action=EDIT&todo_id=${todo.todoId}">Edit</a>
                     //
-                    <a href="${pageContext.request.contextPath}/TodoController?action=DELETE&todo_id=${todo.todoId}"
+                    <a href="${pageContext.request.contextPath}/todo?action=DELETE&todo_id=${todo.todoId}"
                     onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>
                     </td>
                 </tr>
