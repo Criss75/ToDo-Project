@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign Up Form</title>
 
+<link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
     <!-- Font Icon -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/fonts/material-icon/css/material-design-iconic-font.min.css">
 
@@ -30,7 +31,8 @@
 
                                <form action="${pageContext.request.contextPath}/signin" method="POST" class="register-form" id="login-form">
                                    <div class="form-group">
-                                   <p>${requestScope.success}</p>
+                                   <p id = "msg">${requestScope.logout_message}</p>
+                                   </br>
                                        <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                        <input type="text" name="username" id="your_name" placeholder="Your Name"/>
                                    </div>
@@ -38,11 +40,13 @@
                                        <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
                                        <input type="password" name="password" id="your_pass" placeholder="Password"/>
                                    </div>
+                                   <input type = "hidden" value =${account.userId} name = "user_id">
                                    <div class="form-group form-button">
                                        <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
                                        <br> <br>
                                        <a href="signup">Don't have an account yet?</a>
                                    </div>
+                                   <input type="hidden" name="user_id" value="${userId}">
                                </form>
                            </div>
                        </div>

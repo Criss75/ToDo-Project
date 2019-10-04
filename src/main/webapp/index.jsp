@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+   <link rel="icon" type="image/png" href="favicon-32x32.png">
     <title>To Do List</title>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300|Roboto:400,300' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/main.css">
     <link rel="stylesheet" media="screen and (max-width: 500px)" href="CSS/mq_500-less_images.css">
     <link rel="stylesheet" media="screen and (min-width: 501px)" href="CSS/mq_501-plus.css">
     <link rel="stylesheet" media="screen and (min-width: 900px)" href="CSS/mq_900-plus.css">
+
 </head>
 <body>
 
@@ -15,7 +17,7 @@
 <div id="atf">
 
     <header>
-        <a id="logo">TO DO LIST</a>
+        <a id="logo"> <img src="IMG/Webp.net-resizeimage.png" alt="logo" />TO DO ORGANIZER</a>
         <!-- nav desktop (nd) -->
         <ul class="nd">
             <li><a href="signup">Sign up</a></li>
@@ -47,13 +49,6 @@
         <p>You can create a list of todos, add, edit, delete and set-up due dates for your objectives</p>
     </article>
 </section>
-
-<!-- footer -->
-    <!-- nav mobile (nm) -->
-<ul class="nm">
-    <li><a href="signup">Sign up</a></li>
-    <li><a href="signin">Login</a></li>
-</ul>
 
 <footer>
 <p>Copyright &copy; Cristian Jurescu 2019</p>

@@ -1,5 +1,5 @@
 html {
-    font-size: 62.5%;
+    font-size: 82.5%;
 }
 
 html, body, header, main, section, article, footer, div, a, ul, li, h1, h2, h3, p {
@@ -7,6 +7,21 @@ html, body, header, main, section, article, footer, div, a, ul, li, h1, h2, h3, 
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Dosis', sans-serif;
+}
+
+td, tr {
+       font-family: 'Dosis', sans-serif;
+       font-size: 1.4rem;
+       font-weight: bold;
+}
+
+th {
+       font-family: 'Dosis', sans-serif;
+       font-size: 1.5rem;
+       color: white;
+       font-weight: bold;
+       background-color: #073847;
 }
 
 a {
@@ -39,6 +54,25 @@ li {
     flex-grow: 1;
 }
 
+#laptop-img1:after {
+    content : "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("../IMG/glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: top center;
+        background-size: cover;
+        /* grow the laptop image to fill in unused space */
+        flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    opacity : 0.2;
+    z-index: -1;
+}
+
 /* HEADER */
 
 /* header will contain: */
@@ -47,7 +81,7 @@ li {
 /*      large screen sizes (resolutions): */
 /*              navigation links: SPONSORS / MUSIC / PICTURES / MAP / BLOG */
 header {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Dosis', sans-serif;
     color: #333;
     position: fixed;
     top: 0;
@@ -57,6 +91,17 @@ header {
     display: flex;
     align-items: center;
     border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+
+#sp-header{
+    background:rgba(255,255,255,0.6);
+    position:fixed;
+    left:0;
+    top:0;
+    transition:background 0.5s ease;
+}
+#sp-header.header-sticky{
+    background:#fff;
 }
 
 /* logo: THE ENDLESS JOURNEY */
@@ -72,7 +117,7 @@ header {
     flex-grow: 1;
 
     /* font styling */
-    color: #333;
+    color: #654da0;
     font-size: 2rem;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -88,12 +133,48 @@ header {
     color: #0266C8;
 }
 
+#logout {
+
+    /* make a large touch target */
+    /* expand the element to fill height */
+    height: 100%;
+
+    /* make a large touch target */
+    /* expand the element to fill width
+    along primary axis ( horizontally ) */
+    flex-grow: 1;
+
+    /* font styling */
+    color: #654da0;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    /* center text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* change the logo's text color when mouse hover's over it */
+#logout:hover {
+    color: #0266C8;
+}
+
 
 /* disable menu in header */
 /* on small devices, menu is displayed below the fold */
 /* nav desktop (nd) */
 .nd {
     display: none;
+}
+
+.form-group {
+font-size: 1.3rem;
+}
+
+.form-control {
+font-size: 1.3rem;
 }
 
 /* CALL TO ACTION (cta) */
@@ -113,11 +194,11 @@ header {
 #todo-txt {
 
     /* format text */
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Dosis', serif;
     font-weight: 300;
     font-size: 3.5rem;
     letter-spacing: 2px;
-    color: #333;
+    color: #654da0;
 
     /* center text old fashioned-way */
     text-align: center;
@@ -149,80 +230,30 @@ header {
     padding: 10px;
 }
 
+h1 {
+font-family: 'Dosis', sans-serif;
+font-size: 5rem;
+}
+
 .btf-articles h3 {
     /* font format */
-    font-family: 'Roboto Slab', sans-serif;
+    font-family: 'Dosis', sans-serif;
+    color: #654da0;
     font-size: 2.4rem;
     font-weight: 400;
 }
 
 .btf-articles p {
     /* font format */
-    font-family: 'Roboto Slab', sans-serif;
+    font-family: 'Dosis', serif;
+    color: #654da0;
     font-size: 1.6rem;
     font-weight: 300;
 }
 
-
-/* MOBILE MENU ON BOTTOM */
-/* nav mobile (nm) */
-
-.nm {
-    display: flex;
-    flex-direction: column;
-    background: rgb(191, 191, 191);
-}
-
-.nm li {
-
-    /* dimensions */
-    width: 100%;
-    height: 4.5rem;
-
-    /* border */
-    border-top: 1px solid rgba(255,255,255,0.3);
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-
-    /* child elements positioning */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.nm li a {
-    /* make a large touch target */
-    /* expand the anchor element to fill height */
-    height: 100%;
-
-    /* make a large touch target */
-    /* expand the anchor element to fill width along primary axis ( horizontally ) */
-    flex-grow: 1;
-
-    /* font format */
-    color: white;
-    font-size: 1.75rem;
-    letter-spacing: 1px;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-family: 'Roboto', sans-serif;
-
-    /* child elements positioning */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.nm li:hover {
-    background: #333;
-}
-
-.nm li:last-child {
-    border-bottom: none;
-}
-
 footer {
     height: 70px;
-    background-color: #333;
+    background-color: rgba(6, 64, 84, 0.9);
 
     /* flex container to hold content */
     display: flex;
@@ -232,8 +263,9 @@ footer {
 
 footer p {
     color: #999;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Dosis', sans-serif;
     font-weight: 300;
     font-size: 14px;
     text-align: center;
 }
+
