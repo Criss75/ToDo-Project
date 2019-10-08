@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-   <link rel="icon" type="image/png" href="favicon-32x32.png">
+   <link rel="icon" type="image/png" href="IMG/favicon-32x32.png">
     <title>To Do List</title>
     <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/main.css">
