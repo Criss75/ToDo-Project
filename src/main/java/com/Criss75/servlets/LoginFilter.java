@@ -3,12 +3,13 @@ package com.Criss75.servlets;
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
  * Implements a filter for login
  */
-@WebFilter(urlPatterns = { "/TodoController/*", "/todo-add", "/todo-list" })
+@WebFilter(urlPatterns = {"/todo"})
 public class LoginFilter implements Filter {
 
     @Override
@@ -22,10 +23,9 @@ public class LoginFilter implements Filter {
 
         Object isAuthenticated = httpReq.getSession().getAttribute("isAuth");
         if(isAuthenticated == null || !Boolean.valueOf(isAuthenticated.toString())) {
-            servletRequest.getRequestDispatcher("/login").forward(servletRequest, servletResponse);
+            ((HttpServletResponse) servletResponse).sendRedirect(((HttpServletRequest) servletRequest).getContextPath() + "/signin");
+        } else {
+            filterChain.doFilter(servletRequest, servletResponse);
         }
-
-        filterChain.doFilter(servletRequest, servletResponse);
     }
-
 }
