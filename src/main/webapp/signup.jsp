@@ -7,6 +7,7 @@
     <title>Sign Up Form</title>
 <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="icon" type="image/png" href="favicon-32x32.png">
 
 </head>
 
